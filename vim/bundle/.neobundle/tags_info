@@ -1,10 +1,12 @@
 VimClojure
+molokai
 neobundle.vim
 neocomplcache
+neocomplete-php.vim
 neosnippet
 syntastic
 unite.vim
 vim-go
 vim-slime
-vimproc
+vimproc.vim
 vimshell

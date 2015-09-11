@@ -16,15 +16,16 @@ if has('vim_starting')
 endif
 
 " neobundle#begin - neobundle#end の間に導入するプラグインを記載します。
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc', {
-    \   'build' : {
-    \       'windows' : 'make -f make_mingw32.mak',
-    \       'cygwin' : 'make -f make_cygwin.mak',
-    \       'mac' : 'make -f make_mac.mak',
-    \       'unix' : 'make -f make_unix.mak',
-    \   },
-    \ } 
 NeoBundle 'VimClojure'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
@@ -69,15 +70,16 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tomasr/molokai'
 
 call neobundle#end()
 
 filetype plugin indent on
 
-" どうせだから jellybeans カラースキーマを使ってみましょう
-set t_Co=256
-syntax on
-colorscheme molokai
+"" どうせだから jellybeans カラースキーマを使ってみましょう
+"set t_Co=256
+"syntax on
+"colorscheme molokai
 
 "http://yuroyoro.hatenablog.com/entry/2014/08/12/144157
 autocmd FileType go :highlight goErr cterm=bold ctermfg=214
