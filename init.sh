@@ -7,5 +7,5 @@ ln -sf ~/dotfiles/vim/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/git/.gitconfig ~/
 ln -sf ~/dotfiles/.bashrc ~/
 
-./.fzf/install
+. ~/dotfiles/.fzf/install
 . ~/.bashrc
