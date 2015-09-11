@@ -11,11 +11,12 @@ set nocompatible
 filetype off
 
 if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim
+    set runtimepath+=~/dotfiles/vim/bundle/neobundle.vim/
     call neobundle#begin(expand('~/.vim/bundle/'))
 endif
 
 " neobundle#begin - neobundle#end の間に導入するプラグインを記載します。
+NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
     \   'build' : {
