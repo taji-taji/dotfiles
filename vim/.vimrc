@@ -29,6 +29,8 @@ NeoBundle 'VimClojure'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'violetyk/neocomplete-php.vim'
+let g:neocomplete_php_locale = 'ja'
 
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
