@@ -1,6 +1,8 @@
 #!/bin/sh
 rm -rf ~/.vim/bundle/
 rm -rf ~/.vim/colors/
+mkdir ~/.vim/bundle
+mkdir ~/.vim/colors
 
 ln -sf ~/dotfiles/vim/bundle ~/.vim
 ln -sf ~/dotfiles/vim/colors ~/.vim
