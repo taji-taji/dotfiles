@@ -6,4 +6,5 @@ syntastic
 unite.vim
 vim-go
 vim-slime
+vimproc
 vimshell
