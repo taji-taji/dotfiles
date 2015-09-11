@@ -3,6 +3,10 @@ if [ ! -e ~/.vim/bundle ]; then
 	mkdir ~/.vim/bundle
 fi
 
+if [ ! -e ~/.vim/bundle/neobundle.vim/ ]; then
+	git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+fi
+
 ln -sf ~/dotfiles/vim/colors ~/.vim
 ln -sf ~/dotfiles/vim/ftdetect ~/.vim
 ln -sf ~/dotfiles/vim/indent ~/.vim
