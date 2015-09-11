@@ -1,0 +1,8 @@
+[user]
+	email = y.tajika@wall.ac
+	name = Yutaka Tajika
+[alias]
+	st = status
+	br = branch
+	ch = checkout
+	co = commit
