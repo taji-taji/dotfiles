@@ -17,7 +17,6 @@ endif
 
 " neobundle#begin - neobundle#end の間に導入するプラグインを記載します。
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
     \   'build' : {
     \       'windows' : 'make -f make_mingw32.mak',
