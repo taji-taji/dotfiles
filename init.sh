@@ -1,6 +1,13 @@
 #!/bin/sh
-ln -sf ~/dotfiles/vim/bundle ~/.vim
-ln -sf ~/dotfiles/vim/colors ~/.vim
+if [ ! -e ~/.vim/bundle ]; then
+	mkdir ~/.vim/bundle
+fi
+
+if [ ! -e ~/.vim/colors/ ]; then
+	mkdir ~/.vim/colors
+	cp -r ~/dotfiles/vim/colors ~/.vim/colors
+fi
+
 ln -sf ~/dotfiles/vim/ftdetect ~/.vim
 ln -sf ~/dotfiles/vim/indent ~/.vim
 ln -sf ~/dotfiles/vim/.vimrc ~/.vimrc
