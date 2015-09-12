@@ -7,6 +7,22 @@ if [ ! -e ~/.vim/bundle/neobundle.vim/ ]; then
 	git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 fi
 
+if [ ! -e ./.fzf ]; then
+	mkdir ./.fzf
+fi
+
+if [ ! -e ./.fzf/fzf ]; then
+	git clone https://github.com/junegunn/fzf.git ./.fzf
+fi
+
+if [ ! -e ./enhancd ]; then
+	mkdir ./enhancd
+fi
+
+if [ ! -e ./enhancd/enhancd.sh ]; then
+	git clone http://github.com/b4b4r07/enhancd.git ./enhancd
+fi
+
 ln -sf ~/dotfiles/vim/colors ~/.vim
 ln -sf ~/dotfiles/vim/ftdetect ~/.vim
 ln -sf ~/dotfiles/vim/indent ~/.vim
