@@ -31,4 +31,4 @@ ln -sf ~/dotfiles/git/.gitconfig ~/
 ln -sf ~/dotfiles/.bashrc ~/
 
 . ~/dotfiles/.fzf/install
-. ~/.bashrc
+. ~/dotfiles/.bashrc
