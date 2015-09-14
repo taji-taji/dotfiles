@@ -1,3 +1,6 @@
+"------------------
+" 基本設定
+"
 set number
 set encoding:utf-8
 set display=lastline
@@ -6,7 +9,10 @@ set showmatch
 set matchtime=1
 nnoremap Y y$
 
-" neobundle settings {{{
+
+"------------------
+" neobundle 設定
+"
 set nocompatible
 filetype off
 
@@ -15,8 +21,16 @@ if has('vim_starting')
     call neobundle#begin(expand('~/.vim/bundle/'))
 endif
 
-" neobundle#begin - neobundle#end の間に導入するプラグインを記載します。
+
+"------------------
+" neobundle
+"
 NeoBundle 'Shougo/neobundle.vim'
+
+
+"------------------
+" vimproc
+"
 NeoBundle 'Shougo/vimproc.vim', {
 \ 'build' : {
 \     'windows' : 'tools\\update-dll-mingw',
@@ -26,12 +40,38 @@ NeoBundle 'Shougo/vimproc.vim', {
 \     'unix' : 'gmake',
 \    },
 \ }
+
+
+"------------------
+" Vimclojure
+"
 NeoBundle 'VimClojure'
+
+
+"------------------
+" vimshell
+"
 NeoBundle 'Shougo/vimshell'
+
+
+"------------------
+" unite
+"
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache'
+
+
+"------------------
+" neocomplete-php
+"
 NeoBundle 'violetyk/neocomplete-php.vim'
+
 let g:neocomplete_php_locale = 'ja'
+
+
+"------------------
+" neocomplcache
+"
+NeoBundle 'Shougo/neocomplcache'
 
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -42,16 +82,13 @@ let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : ''
     \ }
-
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -66,35 +103,24 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
+
+"------------------
+" newosnippet
+"
 NeoBundle 'Shougo/neosnippet'
+
+
+"------------------
+" vim-slime
+"
 NeoBundle 'jpalardy/vim-slime'
+
+
+"------------------
+" vim-go
+"
 NeoBundle 'fatih/vim-go'
-NeoBundle 'scrooloose/syntastic'
 
-call neobundle#end()
-
-filetype plugin indent on
-
-" どうせだから jellybeans カラースキーマを使ってみましょう
-set t_Co=256
-syntax on
-colorscheme molokai
-
-"http://yuroyoro.hatenablog.com/entry/2014/08/12/144157
-autocmd FileType go :highlight goErr cterm=bold ctermfg=214
-autocmd FileType go :match goErr /\<err\>/
-""quickrunでgo testを走らせる
-"autocmd BufRead,BufNewFile *_test.go set filetype=go.test
-"let g:quickrun_config['go.test'] = {'command' : 'go', 'exec' : ['%c test']}
-
-"syntasticの設定
-let g:syntastic_go_checkers = ['go', 'golint']
-let g:syntastic_mode_map = {
-\ "mode" : "active",
-\ "active_filetypes" : ["go"],
-\}
-
-"vim-goの設定
 let g:go_fmt_autosave = 1
 let g:go_fmt_fail_silently = 1
 au FileType go nmap <Leader>gd <Plug>(go-doc)
@@ -107,3 +133,40 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 cnoremap goi GoImport<space>
+
+
+"------------------
+" syntastic
+"
+NeoBundle 'scrooloose/syntastic'
+
+let g:syntastic_go_checkers = ['go', 'golint']
+let g:syntastic_mode_map = {
+\ "mode" : "active",
+\ "active_filetypes" : ["go"],
+\}
+
+
+call neobundle#end()
+"
+" newobundle 設定ここまで
+"------------------
+
+filetype plugin indent on
+
+
+"------------------
+" colorscheme
+"
+set t_Co=256
+syntax on
+colorscheme molokai
+
+
+"------------------
+" Goファイルの設定
+"
+
+" err という文字列をハイライト
+autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+autocmd FileType go :match goErr /\<err\>/
