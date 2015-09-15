@@ -165,6 +165,14 @@ autocmd WinEnter,FileType html,css colorscheme monokai
 
 
 "------------------
+" PHPファイルの設定
+"
+
+" 保存時に行末の空白を削除
+autocmd BufWritePre,FileType php :%s/\s\+$//ge
+
+
+"------------------
 " Goファイルの設定
 "
 
