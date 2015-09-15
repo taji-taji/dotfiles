@@ -23,6 +23,10 @@ if [ ! -e ./enhancd/enhancd.sh ]; then
 	git clone http://github.com/b4b4r07/enhancd.git ./enhancd
 fi
 
+if [ -e ~/dotfiles/vim/colors ]; then
+	mv -r ~/dotfiles/vim/colors ~/dotfiles/vim/colors.bak
+fi
+
 ln -sf ~/dotfiles/vim/colors ~/.vim
 ln -sf ~/dotfiles/vim/ftdetect ~/.vim
 ln -sf ~/dotfiles/vim/indent ~/.vim
