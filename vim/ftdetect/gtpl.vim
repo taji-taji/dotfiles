@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.gtpl set filetype=go
+au BufRead,BufNewFile *.gtpl set filetype=html

@@ -161,6 +161,7 @@ filetype plugin indent on
 set t_Co=256
 syntax on
 colorscheme molokai
+autocmd WinEnter,FileType html,css,php colorscheme monokai
 
 
 "------------------
