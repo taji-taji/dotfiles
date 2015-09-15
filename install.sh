@@ -24,7 +24,7 @@ if [ ! -e ./enhancd/enhancd.sh ]; then
 fi
 
 if [ -e ~/.vim/colors ]; then
-	mv -r ~/.vim/colors ~/.vim/colors.bak
+	mv ~/.vim/colors ~/.vim/colors.bak
 fi
 
 ln -sf ~/dotfiles/vim/colors ~/.vim
