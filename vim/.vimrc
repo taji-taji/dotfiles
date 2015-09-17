@@ -1,6 +1,6 @@
-"|=====================
-"| 基本設定
-"|---------------
+"|===============================================================
+"|  基本設定
+"|---------------------------------------------------------
 
 set number
 set encoding:utf-8
@@ -11,9 +11,9 @@ set matchtime=1
 nnoremap Y y$
 
 
-"|=====================
+"|===============================================================
 "| neobundle 設定
-"|---------------
+"|---------------------------------------------------------
 
 set nocompatible
 filetype off
@@ -46,21 +46,17 @@ NeoBundle 'scrooloose/syntastic'
 call neobundle#end()
 filetype plugin indent on
 
-"|---------------
-"| newobundle 設定ここまで
-"|=====================
 
-
-"|=====================
+"|===============================================================
 "| 各プラグイン設定
-"|---------------
+"|---------------------------------------------------------
 
-"|--- neocomplete-php >>
+"|------ neocomplete-php ------>>
 
 let g:neocomplete_php_locale = 'ja'
 
 
-"|--- neocomplcache >>
+"|------ neocomplcache ------>>
 
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -93,7 +89,7 @@ inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 
-"|--- vim-go >>
+"|------ vim-go ------>>
 
 let g:go_fmt_autosave = 1
 let g:go_fmt_fail_silently = 1
@@ -109,7 +105,7 @@ let g:go_highlight_build_constraints = 1
 cnoremap goi GoImport<space>
 
 
-"|--- syntastic >>
+"|------ syntastic ------>>
 
 let g:syntastic_go_checkers = ['go', 'golint']
 let g:syntastic_mode_map = {
@@ -118,7 +114,7 @@ let g:syntastic_mode_map = {
 \}
 
 
-"|--- colorscheme >>
+"|------ colorscheme ------>>
 
 set t_Co=256
 syntax on
@@ -126,9 +122,9 @@ colorscheme molokai
 au WinEnter,FileType html,css colorscheme monokai
 
 
-"|=====================
+"|===============================================================
 "| key mapping
-"|------------------
+"|------------------------------------------------------------
 
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
@@ -145,18 +141,18 @@ nnoremap [unite]    <Nop>
 nmap     <Space>u [unite]
 
 
-"|=====================
+"|===============================================================
 "| ファイルタイプ別設定
-"|------------------
+"|------------------------------------------------------------
 
 
-"|--- PHPファイルの設定 >>
+"|------ PHPファイルの設定 ------>>
 
 " 保存時に行末の空白を削除
 au BufWritePre,FileType php :%s/\s\+$//ge
 
 
-"|--- Goファイルの設定 >>
+"|------ Goファイルの設定 ------>>
 
 " err という文字列をハイライト
 au FileType go :highlight goErr cterm=bold ctermfg=214
