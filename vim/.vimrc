@@ -1,6 +1,7 @@
-"------------------
-" 基本設定
-"
+"|=====================
+"| 基本設定
+"|---------------
+
 set number
 set encoding:utf-8
 set display=lastline
@@ -10,9 +11,10 @@ set matchtime=1
 nnoremap Y y$
 
 
-"------------------
-" neobundle 設定
-"
+"|=====================
+"| neobundle 設定
+"|---------------
+
 set nocompatible
 filetype off
 
@@ -21,57 +23,44 @@ if has('vim_starting')
     call neobundle#begin(expand('~/.vim/bundle/'))
 endif
 
-
-"------------------
-" neobundle
-"
 NeoBundle 'Shougo/neobundle.vim'
-
-
-"------------------
-" vimproc
-"
 NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
-
-
-"------------------
-" Vimclojure
-"
+  \ 'build' : {
+  \     'windows' : 'tools\\update-dll-mingw',
+  \     'cygwin' : 'make -f make_cygwin.mak',
+  \     'mac' : 'make -f make_mac.mak',
+  \     'linux' : 'make',
+  \     'unix' : 'gmake',
+  \    },
+  \ }
 NeoBundle 'VimClojure'
-
-
-"------------------
-" vimshell
-"
-NeoBundle 'Shougo/vimshell'
-
-
-"------------------
-" unite
-"
 NeoBundle 'Shougo/unite.vim'
-
-
-"------------------
-" neocomplete-php
-"
+NeoBundle 'Shougo/vimshell'
 NeoBundle 'violetyk/neocomplete-php.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'jpalardy/vim-slime'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'scrooloose/syntastic'
+
+call neobundle#end()
+filetype plugin indent on
+
+"|---------------
+"| newobundle 設定ここまで
+"|=====================
+
+
+"|=====================
+"| 各プラグイン設定
+"|---------------
+
+"|--- neocomplete-php >>
 
 let g:neocomplete_php_locale = 'ja'
 
 
-"------------------
-" neocomplcache
-"
-NeoBundle 'Shougo/neocomplcache'
+"|--- neocomplcache >>
 
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -104,22 +93,7 @@ inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 
-"------------------
-" newosnippet
-"
-NeoBundle 'Shougo/neosnippet'
-
-
-"------------------
-" vim-slime
-"
-NeoBundle 'jpalardy/vim-slime'
-
-
-"------------------
-" vim-go
-"
-NeoBundle 'fatih/vim-go'
+"|--- vim-go >>
 
 let g:go_fmt_autosave = 1
 let g:go_fmt_fail_silently = 1
@@ -135,10 +109,7 @@ let g:go_highlight_build_constraints = 1
 cnoremap goi GoImport<space>
 
 
-"------------------
-" syntastic
-"
-NeoBundle 'scrooloose/syntastic'
+"|--- syntastic >>
 
 let g:syntastic_go_checkers = ['go', 'golint']
 let g:syntastic_mode_map = {
@@ -147,35 +118,46 @@ let g:syntastic_mode_map = {
 \}
 
 
-call neobundle#end()
-"
-" newobundle 設定ここまで
-"------------------
+"|--- colorscheme >>
 
-filetype plugin indent on
-
-
-"------------------
-" colorscheme
-"
 set t_Co=256
 syntax on
 colorscheme molokai
-autocmd WinEnter,FileType html,css colorscheme monokai
+au WinEnter,FileType html,css colorscheme monokai
 
 
-"------------------
-" PHPファイルの設定
-"
+"|=====================
+"| key mapping
+"|------------------
+
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap {} {}<LEFT>
+inoremap [] []<LEFT>
+inoremap () ()<LEFT>
+inoremap "" ""<LEFT>
+inoremap '' ''<LEFT>
+inoremap <> <><LEFT>
+
+nnoremap [unite]    <Nop>
+nmap     <Space>u [unite]
+
+
+"|=====================
+"| ファイルタイプ別設定
+"|------------------
+
+
+"|--- PHPファイルの設定 >>
 
 " 保存時に行末の空白を削除
-autocmd BufWritePre,FileType php :%s/\s\+$//ge
+au BufWritePre,FileType php :%s/\s\+$//ge
 
 
-"------------------
-" Goファイルの設定
-"
+"|--- Goファイルの設定 >>
 
 " err という文字列をハイライト
-autocmd FileType go :highlight goErr cterm=bold ctermfg=214
-autocmd FileType go :match goErr /\<err\>/
+au FileType go :highlight goErr cterm=bold ctermfg=214
+au FileType go :match goErr /\<err\>/

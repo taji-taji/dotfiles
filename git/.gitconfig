@@ -1,3 +1,5 @@
+[core]
+	editor = vim
 [user]
 	email = y.tajika@wall.ac
 	name = Yutaka Tajika
@@ -6,3 +8,6 @@
 	br = branch
 	ch = checkout
 	co = commit
+[color]
+	ui = true
+	diff = true
