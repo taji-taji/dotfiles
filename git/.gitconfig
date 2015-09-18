@@ -1,8 +1,5 @@
 [core]
 	editor = vim
-[user]
-	email = y.tajika@wall.ac
-	name = Yutaka Tajika
 [alias]
 	st = status
 	br = branch
@@ -11,3 +8,5 @@
 [color]
 	ui = true
 	diff = true
+[include]
+	path = ~/.gitconfig_local

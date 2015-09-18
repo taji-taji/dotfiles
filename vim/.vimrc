@@ -8,7 +8,7 @@ set display=lastline
 set wrap
 set showmatch
 set matchtime=1
-nnoremap Y y$
+nnoremap y y$
 
 
 "|===============================================================
@@ -118,6 +118,7 @@ let g:syntastic_mode_map = {
 
 set t_Co=256
 syntax on
+au ColorScheme * highlight Visual ctermbg=49
 colorscheme molokai
 au WinEnter,FileType html,css colorscheme monokai
 

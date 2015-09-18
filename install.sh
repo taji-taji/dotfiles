@@ -27,6 +27,30 @@ if [ -e ~/.vim/colors ]; then
 	mv ~/.vim/colors ~/.vim/colors.bak
 fi
 
+if [ ! -e ~/.gitconfig_local ]; then
+	echo "[user]" >>  ~/.gitconfig_local
+
+	echo -n "Enter git username : "
+	while read username; do
+		case $username in
+			'' ) echo "Blank error."
+				echo -n "Enter git username : " ;;
+			* ) echo "	name = $username" >> ~/.gitconfig_local 
+				break ;;
+		esac
+	done
+
+	echo -n "Enter git email : "
+	while read email; do
+		case $email in
+			'' ) echo "Blank error."
+				echo -n "Enter git email : " ;;
+			* ) echo "	email = $email" >> ~/.gitconfig_local 
+				break ;;
+		esac
+	done
+fi
+
 ln -sf ~/dotfiles/vim/colors ~/.vim
 ln -sf ~/dotfiles/vim/ftdetect ~/.vim
 ln -sf ~/dotfiles/vim/indent ~/.vim
