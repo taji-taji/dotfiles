@@ -8,6 +8,7 @@ set display=lastline
 set wrap
 set showmatch
 set matchtime=1
+set viminfo='100,<50,s10,h,\"1000
 nnoremap y y$
 
 
