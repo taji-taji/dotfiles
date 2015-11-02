@@ -42,5 +42,7 @@ ln -sf ~/dotfiles/vim/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/git/.gitconfig ~/
 ln -sf ~/dotfiles/.bashrc ~/
 
-. ~/dotfiles/.fzf/install
+git add .gitmodules fzf
+git add .gitmodules enhancd
+
 . ~/dotfiles/.bashrc
