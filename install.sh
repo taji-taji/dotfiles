@@ -45,4 +45,5 @@ ln -sf ~/dotfiles/.bashrc ~/
 git add .gitmodules fzf
 git add .gitmodules enhancd
 
+chmod 755 ~/dotfiles/.bashrc
 exec ~/dotfiles/.bashrc
