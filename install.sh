@@ -66,4 +66,4 @@ git add .gitmodules enhancd
 bash ~/dotfiles/fzf/install --all
 
 chmod 755 ~/dotfiles/.bashrc
-exec ~/dotfiles/.bashrc
+exec bash
