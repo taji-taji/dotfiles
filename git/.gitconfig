@@ -1,5 +1,6 @@
 [core]
 	editor = vim
+	whitespace = cr-at-eol
 [alias]
 	st = status
 	br = branch

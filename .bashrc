@@ -110,6 +110,4 @@ if [ -f ~/dotfiles/enhancd/enhancd.sh ]; then
     source ~/dotfiles/enhancd/enhancd.sh
 fi
 
-
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -35,6 +35,24 @@ if [ ! -e ~/.gitconfig_local ]; then
 	done
 fi
 
+if [ -e ~/.bash_profile ]; then
+	count=`cat ~/.bash_profile | grep -c 'if [ -f ~/.bashrc ]'`
+	echo $count
+	if [ $count -eq 0 ]; then
+		echo 
+"if [ -f ~/.bashrc]; then
+	. ~.bashrc
+fi" >> ~/.bash_profile
+	fi
+
+else
+	echo
+"if [ -f ~/.bashrc]; then
+	. ~.bashrc
+fi" >> ~/.bash_profile
+
+fi
+
 ln -sf ~/dotfiles/vim/colors ~/.vim
 ln -sf ~/dotfiles/vim/ftdetect ~/.vim
 ln -sf ~/dotfiles/vim/indent ~/.vim
@@ -45,4 +63,4 @@ ln -sf ~/dotfiles/.bashrc ~/
 git add .gitmodules fzf
 git add .gitmodules enhancd
 
-exec ~/dotfiles/.bashrc
+exec bash
