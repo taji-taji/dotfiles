@@ -55,8 +55,7 @@ ln -sf ~/dotfiles/git/.gitconfig ~/
 ln -sf ~/dotfiles/.bash_aliases ~/
 ln -sf ~/dotfiles/.bashrc ~/
 
-git add .gitmodules fzf
-git add .gitmodules enhancd
+git submodule update --init
 
 bash ~/dotfiles/fzf/install --all
 
