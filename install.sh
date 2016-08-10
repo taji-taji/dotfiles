@@ -52,12 +52,12 @@ ln -sf ~/dotfiles/vim/ftdetect ~/.vim
 ln -sf ~/dotfiles/vim/indent ~/.vim
 ln -sf ~/dotfiles/vim/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/git/.gitconfig ~/
-ln -sf ~/dotfiles/.bash_aliases ~/
-ln -sf ~/dotfiles/.bashrc ~/
+ln -sf ~/dotfiles/bash/.bash_aliases ~/
+ln -sf ~/dotfiles/bash/.bashrc ~/
 
 git submodule update --init
 
 bash ~/dotfiles/fzf/install --all
 
-chmod 755 ~/dotfiles/.bashrc
+chmod 755 ~/dotfiles/bash/.bashrc
 exec bash

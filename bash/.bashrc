@@ -113,8 +113,8 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # スクリプト読み込み
-source ~/dotfiles/git-completion.bash
-source ~/dotfiles/git-prompt.sh
+source ~/dotfiles/git/git-completion.bash
+source ~/dotfiles/git/git-prompt.sh
 
 # プロンプトに各種情報を表示
 GIT_PS1_SHOWDIRTYSTATE=1
