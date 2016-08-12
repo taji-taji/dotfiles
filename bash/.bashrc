@@ -135,3 +135,21 @@ GIT_PS1_SHOWSTASHSTATE=1
 export PS1='\[\033[1;32m\]\u\[\033[00m\]:\[\033[1;34m\]\w\[\033[1;31m\]$(__git_ps1)\[\033[00m\] \$ '
 ##############
 
+# コマンド履歴の共有
+function prompt_command_sync_history () {
+    history -a # .bash_historyに前回コマンドを1行追記
+    history -c # 端末ローカルの履歴を一旦消去
+    history -r # .bash_historyから履歴を読み込み直す
+}
+shopt -s histappend    # .bash_history追記モードは不要なのでOFFに
+
+PROMPT_COMMAND_SYNC_HISTORY=prompt_command_sync_history
+
+# PROMPT_COMMANDに複数の関数を割り当てる関数
+function dispatch () {
+    for f in ${!PROMPT_COMMAND_*}; do   # ${!HOGE*}は、HOGEで始まる変数の一覧を得る
+        eval ${!f}                      # ${!f}は、$fに格納された文字列を名前とする変数を参照する（間接参照・間接展開）
+    done
+}
+
+PROMPT_COMMAND=dispatch
