@@ -21,3 +21,6 @@ alias gitco='git co'
 alias gitch='git ch'
 alias gitbr='git br'
 alias gitdf='git diff'
+
+# swiftenv
+alias se='swiftenv'
