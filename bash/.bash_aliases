@@ -24,3 +24,5 @@ alias gitdf='git diff'
 
 # swiftenv
 alias se='swiftenv'
+alias sev='swiftenv version'
+alias sevs='swiftenv versions'
