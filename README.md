@@ -11,3 +11,7 @@ $ cd ~
 $ git clone https://github.com/taji-taji/dotfiles.git
 $ sh dotfiles/install.sh
 ```
+
+## Environment Variables
+
+- `$GOPATH: $HOME/go`
