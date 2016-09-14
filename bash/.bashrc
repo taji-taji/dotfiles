@@ -153,3 +153,6 @@ function dispatch () {
 }
 
 PROMPT_COMMAND=dispatch
+
+#### SET GOPATH
+export GOPATH=$HOME/go
