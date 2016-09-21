@@ -47,6 +47,49 @@ else
 
 fi
 
+# swiftenv
+echo "Do you want to install [swiftenv]? (y, n): "
+while read res; do
+	case $res in
+		[yY] | [yY]es | YES )
+			# mac用
+			if [ `uname` = "Darwin" ]; then
+				brew update
+				brew install kylef/formulae/swiftenv
+				echo 'if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi' >> ~/.bash_profile
+			# linux用
+			elif [ `uname` = "Linux" ]; then
+				git clone https://github.com/kylef/swiftenv.git ~/.swiftenv
+				echo 'export SWIFTENV_ROOT="$HOME/.swiftenv"' >> ~/.bash_profile
+				echo 'export PATH="$SWIFTENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+				echo 'eval "$(swiftenv init -)"' >> ~/.bash_profile
+			fi
+			break;;
+		[nN] | [nN]o | NO )
+			break;;
+		* ) echo "Please enter [y] or [n]."
+			echo -n "Do you want to install [swiftenv]? (y, n): ";;
+	esac
+done
+
+# virtualenv
+echo "Do you want to install [virtualenv]? (y, n): "
+while read res; do
+	case $res in
+		[yY] | [yY]es | YES )
+			pip install virtualenv
+			pip install virtualenvwrapper
+			echo 'source /usr/local/bin/virtualenvwrapper.sh' >> ~/.bash_profile
+			echo 'export WORKON_HOME=~/.virtualenvs' >> ~/.bash_profile
+			break;;
+		[nN] | [nN]o | NO )
+			break;;
+		* ) echo "Please enter [y] or [n]."
+			echo -n "Do you want to install [virtualenv]? (y, n): ";;
+	esac
+done
+
+# シンボリックリンク
 ln -sf ~/dotfiles/vim/colors ~/.vim
 ln -sf ~/dotfiles/vim/ftdetect ~/.vim
 ln -sf ~/dotfiles/vim/indent ~/.vim
