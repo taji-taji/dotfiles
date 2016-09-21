@@ -72,15 +72,17 @@ while read res; do
 	esac
 done
 
-# virtualenv
-echo "Do you want to install [virtualenv]? (y, n): "
+# pyenv + virtualenv
+echo "Do you want to install [pyenv + virtualenv]? (y, n): "
 while read res; do
 	case $res in
 		[yY] | [yY]es | YES )
-			pip install virtualenv
-			pip install virtualenvwrapper
-			echo 'source /usr/local/bin/virtualenvwrapper.sh' >> ~/.bash_profile
-			echo 'export WORKON_HOME=~/.virtualenvs' >> ~/.bash_profile
+			git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+			git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+			echo 'export PYENV_ROOT=$HOME/.pyenv
+			export PATH=$PYENV_ROOT/bin:$PATH
+			eval "$(pyenv init -)"
+			eval "$(pyenv virtualenv-init -)"' >> ~/.bash_profile
 			break;;
 		[nN] | [nN]o | NO )
 			break;;
