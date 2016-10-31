@@ -156,3 +156,6 @@ PROMPT_COMMAND=dispatch
 
 #### SET GOPATH
 export GOPATH=$HOME/go
+
+#### SET GREP COLOR
+export GREP_OPTIONS='--color=auto'
