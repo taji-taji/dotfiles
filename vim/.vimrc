@@ -44,6 +44,10 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'andviro/flake8-vim'
+NeoBundle 'hynek/vim-python-pep8-indent'
+NeoBundle 'jmcantrell/vim-virtualenv'
 
 call neobundle#end()
 filetype plugin indent on
