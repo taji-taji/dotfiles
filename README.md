@@ -15,7 +15,9 @@ $ sh install.sh
 
 #### Install Homebrew
 
+```
 $ sh dotfiles/tools/brew.sh
+```
 
 #### Install languages
 
