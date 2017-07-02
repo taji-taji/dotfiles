@@ -9,8 +9,13 @@
 ```
 $ cd ~
 $ git clone https://github.com/taji-taji/dotfiles.git
-$ sh dotfiles/install.sh
+$ cd dotfiles
+$ sh install.sh
 ```
+
+#### Install Homebrew
+
+$ sh dotfiles/tools/brew.sh
 
 #### Install languages
 
@@ -18,6 +23,7 @@ $ sh dotfiles/install.sh
 $ sh dotfiles/tools/pyenv.sh
 $ sh dotfiles/tools/rbenv.sh
 $ sh dotfiles/tools/swiftenv.sh
+$ sh dotfiles/tools/pupenv.sh
 ```
 
 ## Environment Variables
