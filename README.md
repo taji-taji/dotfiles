@@ -13,19 +13,25 @@ $ cd dotfiles
 $ sh install.sh
 ```
 
-#### Install Homebrew
+### Setup Mac
 
 ```
-$ sh dotfiles/tools/brew.sh
+$ sh mac/settings.sh
 ```
 
-#### Install languages
+### Install Homebrew
 
 ```
-$ sh dotfiles/tools/pyenv.sh
-$ sh dotfiles/tools/rbenv.sh
-$ sh dotfiles/tools/swiftenv.sh
-$ sh dotfiles/tools/pupenv.sh
+$ sh tools/brew.sh
+```
+
+### Install languages
+
+```
+$ sh tools/pyenv.sh
+$ sh tools/rbenv.sh
+$ sh tools/swiftenv.sh
+$ sh tools/pupenv.sh
 ```
 
 ## Environment Variables
