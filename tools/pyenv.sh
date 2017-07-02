@@ -5,6 +5,10 @@ echo "[pyenv + virtualenv] install? (y, n): "
 while read res; do
 	case $res in
 		[yY] | [yY]es | YES )
+			if [ `uname` = "Darwin" ]; then
+				brew update
+				brew install pyenv
+			fi
 			git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 			git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
 			echo 'export PYENV_ROOT=$HOME/.pyenv' >> ~/.bash_profile
