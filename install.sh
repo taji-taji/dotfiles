@@ -49,19 +49,6 @@ if [ ! -e ~/.gitconfig_local ]; then
 	done
 fi
 
-# .bash_profile
-if [ -e ~/.bash_profile ]; then
-	count=`cat ~/.bash_profile | grep -c 'if [ -f ~/.bashrc ]'`
-	echo $count
-	if [ $count -eq 0 ]; then
-		echo "\nif [ -f ~/.bashrc ]; then\n\t. ~/.bashrc\nfi" >> ~/.bash_profile
-	fi
-
-else
-	echo "if [ -f ~/.bashrc ]; then\n\t. ~/.bashrc\nfi" >> ~/.bash_profile
-
-fi
-
 # シンボリックリンク
 ln -sf ~/dotfiles/vim/colors ~/.vim
 ln -sf ~/dotfiles/vim/ftdetect ~/.vim
@@ -69,12 +56,9 @@ ln -sf ~/dotfiles/vim/ftplugin ~/.vim
 ln -sf ~/dotfiles/vim/indent ~/.vim
 ln -sf ~/dotfiles/vim/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/git/.gitconfig ~/
-ln -sf ~/dotfiles/bash/.bash_aliases ~/
-ln -sf ~/dotfiles/bash/.bashrc ~/
+ln -sf ~/dotfiles/zsh/.zsh_alias ~/
+ln -sf ~/dotfiles/zsh/.zshrc ~/
+ln -sf ~/ditfiles/zsh/.zshenv ~/
 
-git submodule update --init
-
-bash ~/dotfiles/fzf/install --all
-
-chmod 755 ~/dotfiles/bash/.bashrc
+chmod 755 -R ~/dotfiles/zsh/
 exec zsh

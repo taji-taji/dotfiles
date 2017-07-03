@@ -1,0 +1,2 @@
+utoload -Uz compinit
+compinit
