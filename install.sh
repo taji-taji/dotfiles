@@ -1,18 +1,12 @@
 #!/bin/sh
 
-# install zsh
-if [ `uname` = "Darwin" ]; then
-	./tools/brew.sh
-	brew install zsh
-elif [ `uname` = "Linux" ]; then
-	if type yum > /dev/null 2>&1; then
-		yum -y install zsh
-	elif type apt-get > /dev/null 2>&1; then
-		apt-get install zsh
-	fi
-fi
-chsh -s /bin/zsh
+########## 
+# zsh
+. initial/zsh.sh
 
+
+##########
+# vim
 if [ ! -e ~/.vim/bundle ]; then
 	mkdir ~/.vim/bundle
 fi
