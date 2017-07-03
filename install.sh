@@ -1,4 +1,18 @@
 #!/bin/sh
+
+# install zsh
+if [ `uname` = "Darwin" ]; then
+	./tools/brew.sh
+	brew install zsh
+elif [ `uname` = "Linux" ]; then
+	if type yum > /dev/null 2>&1; then
+		yum -y install zsh
+	elif type apt-get > /dev/null 2>&1; then
+		apt-get install zsh
+	fi
+fi
+chsh -s /bin/zsh
+
 if [ ! -e ~/.vim/bundle ]; then
 	mkdir ~/.vim/bundle
 fi
@@ -63,4 +77,4 @@ git submodule update --init
 bash ~/dotfiles/fzf/install --all
 
 chmod 755 ~/dotfiles/bash/.bashrc
-exec bash
+exec zsh
