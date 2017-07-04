@@ -55,7 +55,7 @@ killall Finder
 #
 
 TERM_PROFILE='MyPro';
-TERM_PATH='./terminal/';
+TERM_PATH='.mac/terminal/';
 CURRENT_PROFILE="$(defaults read com.apple.terminal 'Default Window Settings')";
 if [ "${CURRENT_PROFILE}" != "${TERM_PROFILE}" ]; then
     open "$TERM_PATH$TERM_PROFILE.terminal"
