@@ -16,6 +16,8 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.dock autohide -bool true
 # Magnificate the Dock （Dock の拡大機能を入にする）
 defaults write com.apple.dock magnification -bool true
+# 拡大時のサイズ
+defaults write com.apple.dock largesize -float 90
 # 表示位置
 defaults write com.apple.dock orientation -string "left"
 
