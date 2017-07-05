@@ -9,7 +9,7 @@ if [ -f ${HOME}/.zsh_option ]; then
 fi
 
 if [ -f ${HOME}/.zsh_alias ]; then
-	source ${HOME}/.zsh_alias
+    source ${HOME}/.zsh_alias
 fi
 
 if [ -f ${HOME}/.zsh_local ]; then
@@ -78,16 +78,8 @@ setopt pushd_ignore_dups
 
 
 ########################################
-# プロンプト
-# 2行表示
-PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
-%# "
-
-
-########################################
 # スクリプト読み込み
 source ~/dotfiles/git/git-completion.bash
-source ~/dotfiles/git/git-prompt.sh
 
 
 ########################################
@@ -127,34 +119,55 @@ autoload -U compinit
 compinit -u
 rm -f ~/.zcompdump; compinit
 
-# git prompt
-source ~/.zsh/completion/git-prompt.sh
+## PROMPT
+PROMPT=$'${fg[cyan]}[%~]${reset_color} `branch-status-check`
+${fg[green]}>>${reset_color} '
+## RPROMPT
+RPROMPT='[%*]'
+setopt prompt_subst #表示毎にPROMPTで設定されている文字列を評価する
 
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:*' max-exports 6 # formatに入る変数の最大数
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' formats '%b@%r' '%c' '%u'
-zstyle ':vcs_info:git:*' actionformats '%b@%r|%a' '%c' '%u'
-
-function vcs_echo() {
-    local st branch color
-    STY= LANG=en_US.UTF-8 vcs_info
-    st=`git status 2> /dev/null`
-    if [[ -z "$st" ]]; then return; fi
-    branch="$vcs_info_msg_0_"
-    if   [[ -n "$vcs_info_msg_1_" ]]; then color=${fg[green]} #staged
-    elif [[ -n "$vcs_info_msg_2_" ]]; then color=${fg[red]} #unstaged
-    elif [[ -n `echo "$st" | grep "^Untracked"` ]]; then color=${fg[blue]} # untracked
-    else color=${fg[cyan]}
-    fi
-    echo "%F${color}(%{${branch}%})${reset_color}%f" | sed -e s/@/"%F{yellow}@%f${color}"/
+function branch-status-check {
+    local prefix branchname suffix
+        # .gitの中だから除外
+        if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
+            return
+        fi
+        branchname=`get-branch-name`
+        reponame=`get-repo-name`
+        # ブランチ名が無いので除外
+        if [[ -z $branchname ]]; then
+            return
+        fi
+        prefix=`get-branch-status` #色だけ返ってくる
+        suffix='%{'${reset_color}'%}'
+        atmark='%{'${fg[yellow]}'%}@%{'${reset_color}'%}'
+        branch=${prefix}${branchname}${suffix}
+        repo=${prefix}${reponame}${suffix}
+        echo ${branch}${atmark}${repo}
 }
-
-setopt prompt_subst
-
-local p_cdir="%F{cyan}[%~]%f"
-local p_git=`vcs_echo`
-local p_mark="%B%(?,%F{green},%F{red})%(!,#,>>=)%f%b"
-export PROMPT="$p_cdir$p_git
-$p_mark "
+function get-repo-name {
+    echo `basename -s .git \`git config --get remote.origin.url\``
+}
+function get-branch-name {
+    # gitディレクトリじゃない場合のエラーは捨てます
+    echo `git rev-parse --abbrev-ref HEAD 2> /dev/null`
+}
+function get-branch-status {
+    local res color
+        output=`git status --short 2> /dev/null`
+        if [ -z "$output" ]; then
+            res=':' # status Clean
+            color='%{'${fg[green]}'%}'
+        elif [[ $output =~ "[\n]?\?\? " ]]; then
+            res='?:' # Untracked
+            color='%{'${fg[yellow]}'%}'
+        elif [[ $output =~ "[\n]? M " ]]; then
+            res='M:' # Modified
+            color='%{'${fg[red]}'%}'
+        else
+            res='A:' # Added to commit
+            color='%{'${fg[cyan]}'%}'
+        fi
+        # echo ${color}${res}'%{'${reset_color}'%}'
+        echo ${color} # 色だけ返す
+}
