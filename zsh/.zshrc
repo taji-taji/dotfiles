@@ -133,11 +133,15 @@ function branch-status-check {
             return
         fi
         branchname=`get-branch-name`
-        reponame=`get-repo-name`
         # ブランチ名が無いので除外
         if [[ -z $branchname ]]; then
             return
         fi
+        reponame=`get-repo-name`
+	# リポジトリ名がないので除外
+	if [[ -z $reponame ]]; then
+	    return
+	fi
         prefix=`get-branch-status` #色だけ返ってくる
         suffix='%{'${reset_color}'%}'
         atmark='%{'${fg[yellow]}'%}@%{'${reset_color}'%}'
@@ -146,7 +150,7 @@ function branch-status-check {
         echo ${branch}${atmark}${repo}
 }
 function get-repo-name {
-    echo `basename -s .git \`git config --get remote.origin.url\``
+    echo `basename -s .git \`git config --get remote.origin.url\` 2> /dev/null`
 }
 function get-branch-name {
     # gitディレクトリじゃない場合のエラーは捨てます
