@@ -175,3 +175,8 @@ function get-branch-status {
         # echo ${color}${res}'%{'${reset_color}'%}'
         echo ${color} # 色だけ返す
 }
+
+########################
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH" 
+eval "$(rbenv init - zsh)"
