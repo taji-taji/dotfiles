@@ -43,6 +43,10 @@ if [ ! -e ~/.gitconfig_local ]; then
 	done
 fi
 
+##########
+# peco
+. tools/peco.sh
+
 # シンボリックリンク
 ln -sf ~/dotfiles/vim/colors ~/.vim
 ln -sf ~/dotfiles/vim/ftdetect ~/.vim
