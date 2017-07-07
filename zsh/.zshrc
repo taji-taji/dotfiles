@@ -120,10 +120,10 @@ compinit -u
 rm -f ~/.zcompdump; compinit
 
 ## PROMPT
-PROMPT=$'${fg[cyan]}[%~]${reset_color} `branch-status-check`
-${fg[green]}>>${reset_color} '
+PROMPT=$'%{${fg[cyan]}%}[%~]%{${reset_color}%} `branch-status-check`
+%{${fg[green]}%}>>%{${reset_color}%} '
 ## RPROMPT
-RPROMPT='[%*]'
+RPROMPT=$'[%*]'
 setopt prompt_subst #表示毎にPROMPTで設定されている文字列を評価する
 
 function branch-status-check {
