@@ -9,6 +9,15 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 
 #
+# Trackpad
+#
+
+# Enable three finger tap (look up)
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 2
+# Enable other multi-finger gestures
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 2
+
+#
 # Dock
 #
 
@@ -20,6 +29,11 @@ defaults write com.apple.dock magnification -bool true
 defaults write com.apple.dock largesize -float 90
 # 表示位置
 defaults write com.apple.dock orientation -string "left"
+# 3本指でmission control & expose
+defaults write com.apple.dock showMissionControlGestureEnabled -bool true
+defaults write com.apple.dock showAppExposeGestureEnabled -bool true
+defaults write com.apple.dock showDesktopGestureEnabled -bool true
+defaults write com.apple.dock showLaunchpadGestureEnabled -bool true
 
 killall Dock
 
