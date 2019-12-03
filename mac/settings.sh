@@ -65,6 +65,19 @@ killall Finder
 
 
 #
+# Screen Capture
+#
+SCREEN_CAPTURE_DIR='~/ScreenShots/'
+mkdir -p $SCREEN_CAPTURE_DIR
+
+# スクリーンショットの保存先
+defaults write com.apple.screencapture location $SCREEN_CAPTURE_DIR
+# スクリーンショットの保存名
+defaults write com.apple.screencapture name 'ScreenShot'
+
+killall SystemUIServer
+
+#
 # Terminal
 #
 

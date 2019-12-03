@@ -97,7 +97,7 @@ setopt no_flow_control
 setopt ignore_eof
 
 # '#' 以降をコメントとして扱う
-setopt interactive_comments
+setopt interactivecomments
 
 
 # 高機能なワイルドカード展開を使用する
@@ -211,3 +211,8 @@ export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
+export PATH="/usr/local/opt/libxslt/bin:$PATH"
+export PATH="/usr/local/opt/libiconv/bin:$PATH"
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH"

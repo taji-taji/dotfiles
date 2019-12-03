@@ -56,7 +56,7 @@ ln -sf ~/dotfiles/vim/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/git/.gitconfig ~/
 ln -sf ~/dotfiles/zsh/.zsh_alias ~/
 ln -sf ~/dotfiles/zsh/.zshrc ~/
-ln -sf ~/ditfiles/zsh/.zshenv ~/
+ln -sf ~/dotfiles/zsh/.zshenv ~/
 
 chmod 755 -R ~/dotfiles/zsh/
 exec zsh
