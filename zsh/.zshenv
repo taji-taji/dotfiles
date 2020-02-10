@@ -1,3 +1,3 @@
-utoload -Uz compinit
+autoload -Uz compinit
 compinit
 setopt interactivecomments
