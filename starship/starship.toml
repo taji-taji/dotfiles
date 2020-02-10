@@ -1,0 +1,9 @@
+add_newline = false
+
+[time]
+disabled = false
+use_12hr = false
+format = "%H:%M:%S"
+
+[aws]
+disabled = true

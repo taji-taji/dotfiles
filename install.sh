@@ -5,6 +5,11 @@
 . initial/zsh.sh
 
 
+########## 
+# starship
+. initial/starship.sh
+
+
 ##########
 # vim
 if [ ! -e ~/.vim/bundle ]; then
