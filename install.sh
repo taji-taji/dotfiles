@@ -1,13 +1,14 @@
 #!/bin/sh
+CURRENT_DIR=`dirname $0`
 
 ########## 
 # zsh
-. initial/zsh.sh
+. ${CURRENT_DIR}/initial/zsh.sh
 
 
 ########## 
 # starship
-. initial/starship.sh
+. ${CURRENT_DIR}/initial/starship.sh
 
 
 ##########
@@ -50,18 +51,20 @@ fi
 
 ##########
 # peco
-. tools/peco.sh
+. ${CURRENT_DIR}/tools/peco.sh
+
 
 # シンボリックリンク
-ln -sf ~/dotfiles/vim/colors ~/.vim
-ln -sf ~/dotfiles/vim/ftdetect ~/.vim
-ln -sf ~/dotfiles/vim/ftplugin ~/.vim
-ln -sf ~/dotfiles/vim/indent ~/.vim
-ln -sf ~/dotfiles/vim/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/git/.gitconfig ~/
-ln -sf ~/dotfiles/zsh/.zsh_alias ~/
-ln -sf ~/dotfiles/zsh/.zshrc ~/
-ln -sf ~/dotfiles/zsh/.zshenv ~/
+ln -sf "${CURRENT_DIR}/vim/colors" ~/.vim
+ln -sf "${CURRENT_DIR}/vim/ftdetect" ~/.vim
+ln -sf "${CURRENT_DIR}/vim/ftplugin" ~/.vim
+ln -sf "${CURRENT_DIR}/vim/indent" ~/.vim
+ln -sf "${CURRENT_DIR}/vim/.vimrc" ~/.vimrc
+ln -sf "${CURRENT_DIR}/vim/.vimrc.keymap" ~/.vimrc.keymap
+ln -sf "${CURRENT_DIR}/git/.gitconfig" ~/
+ln -sf "${CURRENT_DIR}/zsh/.zsh_alias" ~/
+ln -sf "${CURRENT_DIR}/zsh/.zshrc" ~/
+ln -sf "${CURRENT_DIR}/zsh/.zshenv" ~/
 
-chmod 755 -R ~/dotfiles/zsh/
+chmod 755 -R ${CURRENT_DIR}/zsh/
 exec zsh

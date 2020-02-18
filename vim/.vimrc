@@ -133,19 +133,7 @@ au WinEnter,FileType html,css colorscheme monokai
 "| key mapping
 "|------------------------------------------------------------
 
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
-inoremap {} {}<LEFT>
-inoremap [] []<LEFT>
-inoremap () ()<LEFT>
-inoremap "" ""<LEFT>
-inoremap '' ''<LEFT>
-inoremap <> <><LEFT>
-
-nnoremap [unite]    <Nop>
-nmap     <Space>u [unite]
+source ~/.vimrc.keymap
 
 
 "|===============================================================
