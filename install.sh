@@ -61,6 +61,7 @@ ln -sf "${CURRENT_DIR}/vim/ftplugin" ~/.vim
 ln -sf "${CURRENT_DIR}/vim/indent" ~/.vim
 ln -sf "${CURRENT_DIR}/vim/.vimrc" ~/.vimrc
 ln -sf "${CURRENT_DIR}/vim/.vimrc.keymap" ~/.vimrc.keymap
+ln -sf "$HOME/.vimrc" "$HOME/.ideavimrc"
 ln -sf "${CURRENT_DIR}/git/.gitconfig" ~/
 ln -sf "${CURRENT_DIR}/zsh/.zsh_alias" ~/
 ln -sf "${CURRENT_DIR}/zsh/.zshrc" ~/
