@@ -53,6 +53,15 @@ killall SystemUIServer
 
 
 #
+# Touch Bar
+#
+
+# 常にFunctionキーを表示
+defaults write com.apple.touchbar.agent PresentationModeGlobal -string functionKeys
+
+killall TouchBarAgent
+
+#
 # Finder
 #
 
