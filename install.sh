@@ -64,6 +64,7 @@ ln -sf "${CURRENT_DIR}/git/.gitconfig" ~/
 ln -sf "${CURRENT_DIR}/zsh/.zsh_alias" ~/
 ln -sf "${CURRENT_DIR}/zsh/.zshrc" ~/
 ln -sf "${CURRENT_DIR}/zsh/.zshenv" ~/
+ln -sf "${CURRENT_DIR}/zsh/completion" ~/.zsh/completion
 
 # vim binding config for IDE
 ln -sf "$HOME/.vimrc" "$HOME/.ideavimrc"

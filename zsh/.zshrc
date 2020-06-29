@@ -35,13 +35,6 @@ colors
 
 
 ########################################
-# auto complete
-
-autoload -Uz compinit
-compinit
-
-
-########################################
 # history
 
 HISTFILE=~/.zsh_history
@@ -62,12 +55,6 @@ setopt hist_reduce_blanks
 
 
 ########################################
-# emacs key bind
-#
-bindkey -e
-
-
-########################################
 # cd
 
 # 自動でpushdを実行
@@ -75,11 +62,6 @@ setopt auto_pushd
 
 # pushdから重複を削除
 setopt pushd_ignore_dups
-
-
-########################################
-# スクリプト読み込み
-source ~/dotfiles/git/git-completion.bash
 
 
 ########################################
@@ -113,11 +95,10 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 ########################################
 # git completion
-zstyle ':completion:*:*:git:*' script ~/.zsh/completion/git-completion.zsh
+zstyle ':completion:*:*:git:*' script ~/.zsh/completion/git-completion.bash
 fpath=(~/.zsh/completion $fpath)
-autoload -U compinit
-compinit -u
-rm -f ~/.zcompdump; compinit
+autoload -Uz compinit && compinit -i
+rm -f ~/.zcompdump;
 
 ########################
 # peco
@@ -146,13 +127,13 @@ export PATH=$PATH:~/local/bin/
 ########################
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH" 
-eval "$(rbenv init - zsh)"
+eval "$(rbenv init - zsh --no-rehash)"
 
 ########################
 # pyenv
 export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init -)"
+eval "$(pyenv init - --no-rehash)"
 eval "$(pyenv virtualenv-init -)"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
@@ -163,3 +144,4 @@ export PATH="/usr/local/opt/libiconv/bin:$PATH"
 ########################
 # starship
 eval "$(starship init zsh)"
+
