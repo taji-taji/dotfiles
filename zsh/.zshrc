@@ -123,18 +123,6 @@ bindkey '^r' peco-select-history
 PATH=$PATH:~/local/bin/
 export PATH=$PATH:~/local/bin/
 
-
-########################
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH" 
-eval "$(rbenv init - zsh --no-rehash)"
-
-########################
-# pyenv
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-eval "$(pyenv init - --no-rehash)"
-eval "$(pyenv virtualenv-init -)"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/libxslt/bin:$PATH"
