@@ -71,5 +71,5 @@ ln -sf "${CURRENT_DIR}/zsh/completion" ~/.zsh/completion
 ln -sf "$HOME/.vimrc" "$HOME/.ideavimrc"
 ln -sf "$HOME/.vimrc" "$HOME/.xvimrc"
 
-chmod 755 -R ${CURRENT_DIR}/zsh/
+chmod -R 755 ${CURRENT_DIR}/zsh/
 exec zsh
