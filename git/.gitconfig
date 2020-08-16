@@ -19,3 +19,13 @@
 [user]
 	name = Yutaka
 	email = y.tajika529@gmail.com
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+	# Be able to abort all diffs with `:cq` or `:cquit`
+	trustExitCode = true
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false
