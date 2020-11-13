@@ -9,6 +9,10 @@ set wrap
 set showmatch
 set matchtime=1
 set viminfo='100,<50,s10,h,\"1000
+set tabstop=4
+set shiftwidth=4
+set list
+set listchars=tab:>-,space:.
 
 
 "|===============================================================
@@ -93,6 +97,9 @@ syntax on
 au ColorScheme * highlight Visual ctermbg=49
 colorscheme molokai
 au WinEnter,FileType html,css colorscheme monokai
+highlight Comment ctermfg=Grey
+highlight NonText ctermfg=244
+highlight SpecialKey ctermfg=244
 
 
 "|===============================================================

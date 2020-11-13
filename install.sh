@@ -53,7 +53,6 @@ fi
 # peco
 . ${CURRENT_DIR}/tools/peco.sh
 
-
 # シンボリックリンク
 ln -sf "${CURRENT_DIR}/vim/colors" ~/.vim
 ln -sf "${CURRENT_DIR}/vim/ftdetect" ~/.vim
