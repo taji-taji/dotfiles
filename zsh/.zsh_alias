@@ -29,6 +29,8 @@ alias gtico='git co'
 alias gitch='git ch'
 alias gitbr='git br'
 alias gitd='git difftool'
+alias git-parent-branch="git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -1 | awk -F'[]~^[]' '{print \$2}'"
+alias git-how-to-check-conflict='echo "First, \`git merge --no-commit {branch name}\`, and \`git merge --abort\`"'
 
 # swiftenv
 alias se='swiftenv'
