@@ -1,14 +1,9 @@
 #!/bin/sh
-CURRENT_DIR=`dirname $0`
+CURRENT_DIR=$(cd $(dirname $0); pwd)
 
 ########## 
 # zsh
 . ${CURRENT_DIR}/initial/zsh.sh
-
-
-########## 
-# starship
-. ${CURRENT_DIR}/initial/starship.sh
 
 
 ##########

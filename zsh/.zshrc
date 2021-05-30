@@ -128,8 +128,3 @@ export PATH="/usr/local/opt/libxml2/bin:$PATH"
 export PATH="/usr/local/opt/libxslt/bin:$PATH"
 export PATH="/usr/local/opt/libiconv/bin:$PATH"
 
-
-########################
-# starship
-eval "$(starship init zsh)"
-
