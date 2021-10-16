@@ -13,3 +13,7 @@ eval "$(pyenv virtualenv-init -)"
 ########################
 # cargo
 export PATH="$HOME/.cargo/bin:$PATH"
+
+########################
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
