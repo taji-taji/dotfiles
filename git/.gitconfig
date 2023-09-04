@@ -9,8 +9,6 @@
 [color]
 	ui = true
 	diff = true
-[include]
-	path = ~/.gitconfig_local
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -35,3 +33,5 @@
 	insteadOf = https://github.com/
 [push]
 	default = current
+[include]
+	path = ~/.gitconfig_local
