@@ -13,7 +13,7 @@ if [ ! -e ~/.vim/bundle ]; then
 fi
 
 if [ ! -e ~/.vim/bundle/neobundle.vim/ ]; then
-	git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+	git clone git@github.com:Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 fi
 
 if [ -e ~/.vim/colors ]; then
